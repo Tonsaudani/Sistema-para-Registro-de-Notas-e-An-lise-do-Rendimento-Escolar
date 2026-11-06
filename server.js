@@ -1,0 +1,14 @@
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import healthRouter from "./routes/health.js";
+import turmasRouter from "./routes/turmas.js";
+dotenv.config();
+const app = express();
+const PORT = process.env.PORT || 3001;
+app.use(cors());
+app.use(express.json());
+app.get("/", (_req, res) => res.json({ message: "API do Sistema de Desempenho Escolar" }));
+app.use("/api/health", healthRouter);
+app.use("/api/turmas", turmasRouter);
+app.listen(PORT, () => console.log(`API executando em http://localhost:${PORT}`));

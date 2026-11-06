@@ -1,0 +1,62 @@
+* { box-sizing: border-box; }
+:root { font-family: Arial, Helvetica, sans-serif; color: #1f2937; background: #f4f6f8; line-height: 1.5; }
+body { margin: 0; }
+button, input { font: inherit; }
+.container { width: min(1100px, calc(100% - 32px)); margin: 0 auto; padding: 40px 0; }
+.header { display: flex; justify-content: space-between; gap: 24px; align-items: flex-start; margin-bottom: 32px; }
+.eyebrow { color: #526174; font-size: .78rem; font-weight: 700; letter-spacing: .09em; margin: 0 0 8px; }
+h1, h2, h3 { margin-top: 0; line-height: 1.2; }
+h1 { margin-bottom: 8px; font-size: clamp(1.7rem, 4vw, 2.3rem); }
+h2 { margin-bottom: 8px; font-size: 1.45rem; }
+h3 { margin-bottom: 0; font-size: 1.1rem; }
+.header p:not(.eyebrow), .muted { color: #596579; }
+.status, .card, .panel { background: white; border: 1px solid #d7dce1; border-radius: 12px; }
+.status { padding: 12px 16px; white-space: nowrap; }
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+.card, .panel { padding: 24px; }
+.card { display: flex; flex-direction: column; gap: 8px; }
+.card strong { font-size: 2rem; }
+.panel { margin-bottom: 24px; }
+.section-heading { margin-bottom: 22px; }
+.section-heading p:last-child { margin-bottom: 0; }
+.turma-form { display: grid; grid-template-columns: 1.3fr 1.3fr .7fr; gap: 16px; align-items: end; padding: 20px; background: #f7f9fb; border: 1px solid #e0e5ea; border-radius: 10px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label { font-size: .9rem; font-weight: 700; }
+.field input { width: 100%; min-height: 44px; padding: 10px 12px; color: #1f2937; background: white; border: 1px solid #aeb8c4; border-radius: 7px; }
+input:focus-visible, button:focus-visible { outline: 3px solid #8bbcff; outline-offset: 2px; }
+.form-actions { grid-column: 1 / -1; display: flex; gap: 10px; flex-wrap: wrap; }
+button { min-height: 42px; padding: 9px 16px; border: 1px solid #174b83; border-radius: 7px; color: white; background: #174b83; font-weight: 700; cursor: pointer; }
+button:hover:not(:disabled) { filter: brightness(.92); }
+button:disabled { cursor: wait; opacity: .65; }
+.button-secondary { color: #243447; background: white; border-color: #aeb8c4; }
+.button-danger { color: #9f2525; background: white; border-color: #d6a1a1; }
+.button-small { min-height: 34px; padding: 5px 10px; font-size: .85rem; }
+.notice { padding: 11px 14px; border-radius: 7px; margin: 0 0 16px; }
+.success { color: #17623b; background: #eaf7ef; border: 1px solid #b8dfc6; }
+.error { color: #8d2020; background: #fff0f0; border: 1px solid #e8bcbc; }
+.table-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin: 26px 0 14px; }
+.refresh-button { min-height: 36px; padding: 6px 12px; font-size: .85rem; }
+.table-wrapper { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; text-align: left; }
+th, td { padding: 13px 12px; border-bottom: 1px solid #e3e7eb; }
+th { color: #435166; background: #f7f9fb; font-size: .85rem; }
+td { font-size: .93rem; }
+.row-actions { display: flex; gap: 7px; flex-wrap: wrap; }
+.empty-state { padding: 20px; text-align: center; color: #596579; background: #f7f9fb; border-radius: 8px; }
+.footer { padding: 8px 0 20px; color: #687486; text-align: center; font-size: .85rem; }
+@media (max-width: 760px) {
+  .header { flex-direction: column; }
+  .cards { grid-template-columns: 1fr; }
+  .turma-form { grid-template-columns: 1fr; }
+  .form-actions { grid-column: auto; }
+  .panel { padding: 18px; }
+}
+@media (max-width: 560px) {
+  .table-heading { align-items: flex-start; flex-direction: column; }
+  table, tbody, tr, td { display: block; width: 100%; }
+  thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+  tbody tr { margin-bottom: 12px; padding: 8px 12px; border: 1px solid #e0e5ea; border-radius: 8px; }
+  td { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid #edf0f2; }
+  td:last-child { border-bottom: 0; }
+  td::before { content: attr(data-label); color: #596579; font-weight: 700; }
+}
